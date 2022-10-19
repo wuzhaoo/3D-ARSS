@@ -40,7 +40,7 @@ Unet1为Unet基本结构，Unet3将空间注意力模块和通道注意力模块
 `rz` 点云绕z轴旋转量：np.random.uniform(-np.pi,np.pi)  
 `factor` 点云缩放因数： np.random.uniform(0.95,1.05)  
 
-##实验环境
+##  实验环境
 GPU：3090  
 CPU：i7-10700K CPU@3.8GHz  
 内存：32GB  
@@ -50,7 +50,7 @@ linux：18.04
 数据集：Semantic KITTI  
 tensorboard  
 CUDA：11.1  
-##使用流程
+##  使用流程
 下载数据集后，首先进行开发环境配置。  
 然后使用`frame_extraction.py`，`write_config.py`，脚本进行数据集划分。  
 调整网络结构，调整超参数，调整文件目录，执行`python train.py`进行训练。  
