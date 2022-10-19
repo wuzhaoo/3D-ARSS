@@ -59,13 +59,13 @@ CUDA：11.1
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/1.jpg)  
 
 ## 注意力模块效果示意图  
-![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/2.jpg)  
+![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/2.png)  
 
 ## 预测时间/功率统计图  
-![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/3.jpg)  
+![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/3.png)  
 
 ## 移动机器人部署效果图   
-![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/4.jpg)    
+![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/4.png)    
 
 
 
