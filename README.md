@@ -56,4 +56,4 @@ CUDA：11.1
 调整网络结构，调整超参数，调整文件目录，执行`python train.py`进行训练。  
 训练完成后，使用`draw_kitti.py`文件进行可视化或`test_kitti.py`进行测试。  
 ## 实验效果图  
-![image]( ​https://github.com/wuzhaoo/ASR-Net/tree/main/figures/1.jpg​​)  
+![image](https://github.com/wuzhaoo/ASR-Net/tree/main/figures/1.jpg)  
