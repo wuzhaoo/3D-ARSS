@@ -20,9 +20,9 @@ Unet1为Unet基本结构，Unet3将空间注意力模块和通道注意力模块
 `split_dataset.py`  对全数据集进行自动划分，使用`torch.utils.data.random_split`方法  
 `train_data.txt`  训练集文件对应目录的txt文件，用于训练文件读取  
 `validate_data.txt`  交叉验证集文件对应目录的txt文件，用于交叉验证文件读取  
-`test_data.txt`  测试集文件对应目录的txt文件，用于测试脚本文件读取   
-`test_kitti.py`  测试脚本，用于模型最终效果测试  
-`write_config.py`  全数据集打乱划分脚本，训练集：交叉验证集：测试集 6：2：2  
+`test_data.txt`  测试集文件对应目录的txt文件，用于测试集文件读取的脚本  
+`test_kitti.py`  测试脚本，用于模型效果测试  
+`write_config.py`  全数据集打乱划分脚本，用于打乱数据并划分数据集，训练集：交叉验证集：测试集 6：2：2  
 
 ## 超参数设置  
 本实验中，训练中超参数设置如下：  
