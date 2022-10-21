@@ -11,7 +11,8 @@
 ***⭐***GCC >= 7.4.0    
 
 ## 详细说明
-Unet1为Unet基本结构，Unet3将空间注意力模块和通道注意力模块与基础Unet结构进行结合。  
+Unet1为baseline模型基本结构，Unet2将空间注意力模块和通道注意力模块与baseline结构进行结合。  
+Unet3将空间注意力模块和baseline进行结合，Unet4将通道注意力模块和baseline进行结合。  
 `attention` 目录为注意力模块文件目录
 `draw_kitti.py`  画图程序，可基于现有的权重文件和点云原始坐标进行可视化绘图  
 `frame_extration.py`  帧采样模块，对点云帧每n帧取一帧  
