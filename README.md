@@ -1,74 +1,69 @@
 # ASR-Net
-本模块调用Minkowski Engine，基于稀疏卷积运算实现,实验数据集采用Semantic KITTI数据集。  
-以下说明将帮助你在本地机器上安装和运行该项目，进行开发和测试。具体操作，请参考如下说明。  
+This module calls Minkowski Engine, which is implemented based on sparse convolution operation. The experimental dataset adopts the Semantic KITTI dataset.  
+The following instructions will help you install and run the project on your local machine for development and testing. Please refer to the following instructions for specific operations.  
 
-## 开发环境要求
-***⭐***  Ubuntu >= 14.04  
-***⭐***CUDA >= 10.1.243 and **the same CUDA version used for pytorch** (e.g. if you use conda cudatoolkit=11.1, use CUDA=11.1 for MinkowskiEngine     compilation)  
-***⭐***pytorch >= 1.7 To specify CUDA version, please use conda for installation. You must match the CUDA version pytorch uses and CUDA version used for Minkowski Engine installation. `conda install -y -c nvidia -c pytorch pytorch=1.8.1 cudatoolkit=10.2)`  
-***⭐***python >= 3.6   
-***⭐***ninja (for installation)    
-***⭐***GCC >= 7.4.0    
+## Development environment requirements  
+***●***  Ubuntu >= 14.04  
+***●***  CUDA >= 10.1.243 and **the same CUDA version used for pytorch** (e.g. if you use conda cudatoolkit=11.1, use CUDA=11.1 for MinkowskiEngine     compilation)  
+***●***  pytorch >= 1.7 To specify CUDA version, please use conda for installation. You must match the CUDA version pytorch uses and CUDA version used for Minkowski Engine installation. `conda install -y -c nvidia -c pytorch pytorch=1.8.1 cudatoolkit=10.2)`  
+***●***  python >= 3.6   
+***●***  ninja (for installation)    
+***●***  GCC >= 7.4.0    
 
-## 详细说明
-Unet1为baseline模型基本结构，Unet2将空间注意力模块和通道注意力模块与baseline结构进行结合。  
-Unet3将空间注意力模块和baseline进行结合，Unet4将通道注意力模块和baseline进行结合。  
-`attention` 目录为注意力模块文件目录
-`draw_kitti.py`  画图程序，可基于现有的权重文件和点云原始坐标进行可视化绘图  
-`frame_extration.py`  帧采样模块，对点云帧每n帧取一帧  
-`lablename.py`  存储Semantic KITTI数据集中标签和类别的映射关系，以及可视化中绘图的颜色  
-`mIoU.py`  进行混淆矩阵的计算，得到acc，mIoU等指标的统计值  
-`split_dataset.py`  对全数据集进行自动划分，使用`torch.utils.data.random_split`方法  
-`train_data.txt`  训练集文件对应目录的txt文件，用于训练文件读取  
-`validate_data.txt`  交叉验证集文件对应目录的txt文件，用于交叉验证文件读取  
-`test_data.txt`  测试集文件对应目录的txt文件，用于测试集文件读取的脚本  
-`test_kitti.py`  测试脚本，用于模型效果测试  
-`write_config.py`  全数据集打乱划分脚本，用于打乱数据并划分数据集，训练集：交叉验证集：测试集 6：2：2  
+## Detailed description   
+Unet1 is the basic structure of the baseline model. Unet2 combines the spatial attention module and channel attention module with the baseline structure.    
+Unet3 combines the spatial attention module with baseline, and Unet4 combines the channel attention module with baseline.    
+`attention` directory is the directory of attention module files.    
+`draw_kitti.py`  Renderer, which can visually draw based on the existing weight file and the original coordinates of the point cloud.  
+`frame_extration.py`  Frame sampling module, taking one frame for every n frames of point cloud frame.    
+`lablename.py`  Stores the mapping relationship between labels and categories in the Semantic KITTI dataset, as well as the color of drawings in visualization.    
+`mIoU.py`  Calculation module, calculate the confusion matrix, and obtain the statistical values of acc, mIoU and other indicators.    
+`split_dataset.py`  Automatic partitioning of the entire dataset, using `torch.utils.data.random_split` method.    
+`train_data.txt`  The txt file of the directory corresponding to the training set file is used to read the training file.    
+`validate_data.txt`  The txt file of the directory corresponding to the cross validation set file for cross validation file reading.     
+`test_data.txt`  The txt file of the directory corresponding to the test set file, which is used as the script for reading the test set file.    
+`test_kitti.py`  Test script for model effect test.    
+`write_config.py`  The full dataset scrambling and partitioning script is used to scramble data and partition data sets. Training set: cross validation set: test set 6:2:2   
 
-## 超参数设置  
-本实验中，训练中超参数设置如下：  
+## Super parameter setting    
+In this experiment, the super parameters in training are set as follows：  
   
-`GRID_SIZE_R` 语义分割任务执行范围大小：[20,20,20]，超出该范围的点进行忽略  
-`quantization_size` 栅格大小：0.1
-`batch_size` 批次大小：16  
-`max_epoch`  最大训练轮数：500
-`learning_rate`  学习率：1e-4  
-`weight_decay` 权值衰减系数：1e-4  
+`GRID_SIZE_R` Size of semantic segmentation task execution range: [20, 20, 20]. Points beyond this range are ignored.  
+`quantization_size` ：0.1  
+`max_epoch`  Maximum training rounds：500  
+`batch_size` ：16  
+`learning_rate`  ：1e-4  
+`weight_decay` ：1e-4  
 #### Data Argumentation  
-`tx` 点云绕x轴平移量：np.random.uniform(-2, 2)  
-`ty` 点云绕y轴平移量：np.random.uniform(-2, 2)  
-`tz` 点云绕z轴平移量：np.random.uniform(-2, 2)  
-`rz` 点云绕z轴旋转量：np.random.uniform(-np.pi,np.pi)  
-`factor` 点云缩放因数： np.random.uniform(0.95,1.05)  
+`tx` Translation of point cloud around x-axis：np.random.uniform(-2, 2)  
+`ty` Translation of point cloud around y-axis：np.random.uniform(-2, 2)  
+`tz` Translation of point cloud around z-axis：np.random.uniform(-2, 2)  
+`rz` Rotation amount of point cloud around z-axis：np.random.uniform(-np.pi,np.pi)  
+`factor` Point Cloud Scale Factor： np.random.uniform(0.95,1.05)  
 
-##  实验环境
+##  Experimental environment  
 GPU：3090  
 CPU：i7-10700K CPU@3.8GHz  
-内存：32GB  
-硬盘：500GB+1TB  
+Memory：32GB  
+Disk：500GB+1TB  
 python版本：3.8  
 linux：18.04  
-数据集：Semantic KITTI  
+Dataset：Semantic KITTI  
 tensorboard  
 CUDA：11.1  
-##  使用流程
-下载数据集后，首先进行开发环境配置。  
-然后使用`frame_extraction.py`，`write_config.py`，脚本进行数据集划分。  
-调整网络结构，调整超参数，调整文件目录，执行`python train.py`进行训练。  
-训练完成后，使用`draw_kitti.py`文件进行可视化或`test_kitti.py`进行测试。  
-## 实验效果图  
+##  Use process  
+After downloading the dataset, first configure the development environment.  
+Then use `frame_extraction.py`，`write_ config.Py'. The script partitions the dataset.  
+Adjust the network structure, super parameters, file directory, and execute ` python train.py ` for training.  
+After training, use `draw_ Kitti.py ` file for visualization or ` test_ Kitti.py ` test.  
+## Experiment effect picture    
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/1.jpg)  
 
-## 注意力模块效果示意图  
+## Effect Diagram of Attention Module    
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/2.png)  
 
-## 预测时间/功率统计图  
+## Forecast time/power statistic chart    
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/3.png)  
 
-## 移动机器人部署效果图   
+## Rendering of mobile robot deployment     
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/4.png)    
-
-
-
-
-
