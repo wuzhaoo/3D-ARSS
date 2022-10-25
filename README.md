@@ -53,9 +53,9 @@ tensorboard
 CUDA：11.1  
 ##  Use process  
 After downloading the dataset, first configure the development environment.  
-Then use `frame_extraction.py`，`write_ config.Py'. The script partitions the dataset.  
-Adjust the network structure, super parameters, file directory, and execute ` python train.py ` for training.  
-After training, use `draw_ Kitti.py ` file for visualization or ` test_ Kitti.py ` test.  
+Then use `frame_extraction.py`，`write_ config.py`. The script partitions the dataset.  
+Adjust the network structure, super parameters, file directory, and execute `python train.py` for training.  
+After training, use `draw_Kitti.py` file for visualization or `test_Kitti.py` test.  
 ## Experiment effect picture    
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/1.jpg)  
 
