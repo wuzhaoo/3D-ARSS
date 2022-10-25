@@ -46,7 +46,7 @@ GPU：3090
 CPU：i7-10700K CPU@3.8GHz  
 Memory：32GB  
 Disk：500GB+1TB  
-python版本：3.8  
+python version：3.8  
 linux：18.04  
 Dataset：Semantic KITTI  
 tensorboard  
