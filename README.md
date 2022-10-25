@@ -63,7 +63,7 @@ After training, use `draw_Kitti.py` file for visualization or `test_Kitti.py` te
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/2.png)  
 
 ## Forecast time/power statistic chart    
-![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/3.png)  
+![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/5.png)  
 
 ## Rendering of mobile robot deployment     
 ![Image text](https://raw.githubusercontent.com/wuzhaoo/ASR-Net/main/figures/4.png)    
